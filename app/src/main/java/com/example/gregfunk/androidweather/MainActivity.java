@@ -18,8 +18,10 @@ import org.w3c.dom.Text;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -92,11 +94,14 @@ public class MainActivity extends AppCompatActivity {
         DownloadTask task = new DownloadTask();
         String result = null;
         try {
-            result = task.execute("http://api.openweathermap.org/data/2.5/weather?q=" + cityName.getText().toString()).get();
+            String encodedCityName = URLEncoder.encode(cityName.getText().toString(), "UTF-8");
+            result = task.execute("http://api.openweathermap.org/data/2.5/weather?q=" + encodedCityName).get();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
