@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... urls) {
-            String result = "";
+            /*String result = "";
             URL url;
             HttpURLConnection urlConnection = null;
 
@@ -40,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            return null;
+            return null;*/
+
+            String result = "{\"coord\":{\"lon\":-0.13,\"lat\":51.51},\"weather\":[{\"id\":500,\"main\":\"Rain\",\"description\":\"light rain\",\"icon\":\"10d\"}],\"base\":\"cmc stations\",\"main\":{\"temp\":282.908,\"pressure\":1015.25,\"humidity\":100,\"temp_min\":282.908,\"temp_max\":282.908,\"sea_level\":1025.44,\"grnd_level\":1015.25},\"wind\":{\"speed\":2.37,\"deg\":290.5},\"rain\":{\"3h\":2.83},\"clouds\":{\"all\":92},\"dt\":1447939868,\"sys\":{\"message\":0.0045,\"country\":\"GB\",\"sunrise\":1447917935,\"sunset\":1447949147},\"id\":2643743,\"name\":\"London\",\"cod\":200}";
+            return result;
         }
     }
 
